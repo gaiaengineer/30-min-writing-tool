@@ -1,0 +1,135 @@
+/** San Francisco for text */
+@font-face {
+    font-family: "San Francisco Text Regular";
+    src: url("https://db.onlinewebfonts.com/t/1dcaeb4b73c8753508cd921cd78a4e23.eot");
+    src: url("https://db.onlinewebfonts.com/t/1dcaeb4b73c8753508cd921cd78a4e23.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/1dcaeb4b73c8753508cd921cd78a4e23.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/1dcaeb4b73c8753508cd921cd78a4e23.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/1dcaeb4b73c8753508cd921cd78a4e23.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/1dcaeb4b73c8753508cd921cd78a4e23.svg#San Francisco Text Regular")format("svg");
+}
+
+body {
+    font-family: "San Francisco Text Regular", sans-serif;
+    background-color: #fafafa; /* Light theme background */
+    color: #333; /* Light theme text color */
+    margin: 0;
+    padding: 0;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999; /* Ensure it's on top */
+}
+
+#theme-toggle-button {
+    font-size: 24px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.info-block {
+    width: calc(100% - 40px); /* Set width to match outer-container (minus padding) */
+    background-color: lightgray; /* Set background color */
+    padding: 10px 20px; /* Add padding */
+    box-sizing: border-box; /* Include padding in width calculation */
+    margin: 0 auto 20px; /* Center and add bottom margin to create space between info block and outer container */
+    max-width: 440px;
+}
+
+.outer-container {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Material design card shadow */
+    margin: 0 auto; /* Center the container horizontally */
+    max-width: 400px;
+    position: relative; /* Set position to relative for absolute positioning of timer */
+}
+
+#generate, #write-for-30-min {
+    font-family: "San Francisco Text Regular", sans-serif;
+    background-color: gray; /* Light theme button background */
+    color: #fff; /* Light theme button text color */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block; /* Display buttons inline */
+    margin-top: 20px;
+}
+
+#generate {
+    margin-right: 10px; /* Add margin between the buttons */
+}
+
+/* Dark theme */
+body.dark {
+    background-color: #333; /* Dark theme background */
+    color: #fafafa; /* Dark theme text color */
+}
+
+.outer-container.dark {
+    background-color: #222; /* Dark theme card background */
+}
+
+.outer-container.dark #generate, .outer-container.dark #write-for-30-min {
+    background-color: #0056b3; /* Dark theme button background */
+    color: #fafafa; /* Dark theme button text color */
+}
+
+.outer-container.dark #theme-toggle-button {
+    color: #fafafa; /* Dark theme button color */
+}
+
+/* Media Queries for responsiveness */
+@media only screen and (max-width: 600px) {
+    .outer-container {
+        max-width: 100%;
+    }
+}
+
+/* Toggle changes color */
+.dark #theme-toggle-img {
+    filter: invert(1) brightness(150%); /* Invert color and increase brightness */
+}
+
+/* Timer styles */
+#timer {
+    font-family: "San Francisco Text Regular", sans-serif; /* Apply the same font family */
+    font-size: 24px;
+    text-align: center;
+    position: absolute;
+    bottom: 20px; /* Position the timer below the outer-container */
+    right: 20px; /* Align with the right border of outer-container */
+}
+
+@media only screen and (max-width: 600px) {
+    #timer {
+        position: static; /* Reset position for smaller screens */
+        text-align: right; /* Align timer text to the right on smaller screens */
+    }
+}
+
+.blink {
+    animation: blink-animation 1s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
+.info-block span {
+    position: relative; /* Make the span a positioned element */
+    display: inline-block; /* Make the span inline-block to apply border */
+    padding-bottom: 5px; /* Add padding to space the underline from text */
+    background-image: 
+        linear-gradient(to right, transparent 25%, gray 25%, gray 75%, transparent 75%);
+    background-size: 8px 2px; /* Set size of the pencil-like underline */
+    background-position: 0 100%; /* Position the background image */
+    background-repeat: repeat-x; /* Repeat the background image horizontally */
+}
